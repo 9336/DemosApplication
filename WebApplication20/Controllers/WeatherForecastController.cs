@@ -29,5 +29,16 @@ namespace WebApplication20.Controllers
             })
             .ToArray();
         }
+
+        [HttpGet(Name = "GetNewNames")]
+        public List<string> GetNewDetails()
+        {
+            List<string> details = new List<string>();
+            details.Add("Detail 1");
+            details.Add("Detail 2");
+            details.Add("Detail 3");
+            return details;
+        }
+
     }
 }
