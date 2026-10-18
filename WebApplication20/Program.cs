@@ -10,15 +10,16 @@ builder.Services.AddSwaggerGen();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+// Swagger is enabled in all environments so the API can be explored on Azure.
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+
+// Send the root URL to the Swagger UI instead of returning 404.
+app.MapGet("/", () => Results.Redirect("/swagger"));
 
 app.MapControllers();
 
