@@ -30,7 +30,7 @@ namespace WebApplication20.Controllers
             .ToArray();
         }
 
-        [HttpGet(Name = "GetNewNames")]
+        [HttpGet("details", Name = "GetNewNames")]
         public List<string> GetNewDetails()
         {
             List<string> details = new List<string>();
@@ -39,6 +39,5 @@ namespace WebApplication20.Controllers
             details.Add("Detail 3");
             return details;
         }
-
     }
 }
